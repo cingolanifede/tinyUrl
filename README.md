@@ -6,6 +6,7 @@
       It makes the URL more manageable and easy to share or remember. It can bu used in any situation that requires to acces to sites with long urls.
     3. Describe The main mechanism of work and system components.
       It uses url redirection, HTTP 301 redirection to the original url. Ex. using AYI-tinyUrl yo get a short url from ther service that points to the original url
+      The system stores the short url and the long url in a mongo db. When you type the short url in the browser the api is asked and it brings back the original url. Also it counts the time you acces the link. You can acces the most visited url the las 24hs and check the clicks.
     4. What do you think are the main challenges in implementing and running the system.
       To run the system you need to have docker installed.
       You can change .env file for the api variables.
