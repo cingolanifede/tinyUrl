@@ -16,5 +16,6 @@
       You need to trust the url you ar given, so make a validation for the url's to know where you are being redirected.
     
 - Useful data:
+- To run: clone the repo and run docker-compose up -d
 - API running in port 9001
 - Frontend running in port 4200. Access with browser to localhost:4200
