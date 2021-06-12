@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="expanded-toolbar">
+    <span>
+        <button mat-button routerLink="/home"><mat-icon>west</mat-icon></button>
+        <button mat-button>{{currentTitle}}</button>
+    </span>
+</mat-toolbar>
+
+<h2 class="mat-h2 title">Most visited url in last 24 hs</h2>
+<mat-divider></mat-divider>
+
+<mat-list class="rounded-list">
+  <mat-list-item *ngFor="let item of result">
+    <mat-icon mat-list-icon>fiber_manual_record</mat-icon>
+    <div mat-line>{{item.longUrl}}</div>
+    <div mat-line> {{item.updatedAt | date}} </div>
+    <div mat-line> <b>Clicks: {{item.clickCount}} </b> </div>
+  </mat-list-item>
+</mat-list>

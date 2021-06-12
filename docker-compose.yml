@@ -1,0 +1,47 @@
+version: '3.7'
+x-common-variables: &common-variables
+  PORT: 9001
+  NODE_ENV: dev
+  APP_NAME: tiny-url
+  BASE_URL: http://localhost:9001/api
+  DB_PATH: mongoDB
+services:
+  db:
+    container_name: mongoDB
+    image: mongo:latest
+    volumes:
+      - mongodata:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=Url
+    ports:
+      - 27017:27017
+
+  local:
+    build:
+      context: ./api
+    image: tinyurl-backend
+    container_name: backend
+    volumes:
+      - ./api/src:/app/src
+    environment: *common-variables
+    depends_on:
+      - db
+    ports:
+      - '9001:9001'
+    tty: true
+
+  angular: # The name of the service
+    build:
+      context: ./angular-app
+    container_name: frontend
+    depends_on:
+      - local
+    volumes:
+      - './angular-app/src:/app/src'
+    ports: 
+      - '4200:4200'
+    tty: true
+    command: bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+
+volumes:
+  mongodata:

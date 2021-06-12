@@ -1,0 +1,67 @@
+.expanded-toolbar {
+	justify-content: space-between;
+	align-items: center;
+}
+
+.mat-list-icon {
+	color: rgba(0, 0, 0, 0.54);
+}
+
+.interior {
+	padding-top: 15%;
+	text-align: center;
+}
+
+.title {
+	padding-left: 26px;
+	padding-top: 10px;
+}
+
+.rounded-list {
+	padding-left: 26px;
+}
+
+.qrCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 65%;
+	padding: 50px 20px;
+	// background-color: rgb(172, 172, 172);
+	border-radius: 20px;
+}
+
+.example-form-field {
+	width: 200px;
+}
+
+.example-container .mat-form-field+.mat-form-field {
+	margin-left: 8px;
+}
+
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner:before {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin-top: -10px;
+	margin-left: -10px;
+	border-radius: 50%;
+	border: 2px solid #ffffff;
+	border-top-color: #000000;
+	animation: spinner .8s linear infinite;
+}
